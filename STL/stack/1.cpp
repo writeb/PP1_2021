@@ -1,5 +1,8 @@
 // stack - работает по принципу LIFO (последним пришел - первым ушел), т.е. элементы 
 // добавлются в конец контейнера и удалются оттуда же (из конца)
+
+// stack::top() : Function returns top element of the stack.
+
 #include <iostream>
 #include <stack>
 using namespace std;

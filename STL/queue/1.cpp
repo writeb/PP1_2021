@@ -1,5 +1,8 @@
 // queue - контейнер, который работает по принципу FIFO(первым пришел - первым ушел) 
 //т.е - элементы вставляются сзади(конец) и удаляются спереди
+
+// size(), front(), back()
+
 #include <iostream>
 #include <queue>
 using namespace std;

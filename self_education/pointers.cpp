@@ -16,3 +16,14 @@ When * is not used in a declaration, it is a dereference operator,
 But suppose we don’t know where we are pointing to, we can use a null pointer.
 nullptr is a new keyword introduced in C++11.
 */
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n = 500;
+    int* p = &n;
+    cout<<*p<<"\n"; // deference operator
+    cout<<p<<"\n";  // prints memory adress
+
+    return 0;
+}

@@ -1,3 +1,4 @@
+// multiset - такой же контейнер как set, только дубликаты не убирает
 #include <iostream>
 #include <set>
 using namespace std;
