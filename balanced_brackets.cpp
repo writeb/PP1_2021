@@ -1,60 +1,32 @@
 #include <iostream>
 #include <stack>
-#include <vector>
-
 using namespace std;
 
-bool isBalanced(string s)
-{
-    int i;
-    char c;
-    int n = s.length();
-
-    stack<char> t;
-
-    for (i = 0; i < n; i++)
-    {
-        c = s.at(i);
-
-        if (t.empty())
-        {
-            t.push(c);
+int main(){
+    stack <int> st;
+    string str;
+    cin>>str;
+    bool res = true;
+    for (int i=0; i<str.size(); i++){
+        if (str[i] == '(' || str[i] == '[' || str[i] == '{'){
+            st.push(str[i]);
         }
-        else if (t.top() == '(' && c == ')' || t.top() == '{' && c == '}' || t.top() == '[' && c == ']')
-        {
-            t.pop();
+        else if (str[i] == ')' || str[i] == ']' || str[i] == '}'){
+            if (!st.empty()){
+                st.pop();
+            }
+            else {
+                res = false;
+                break;
+            }
         }
-        else
-            t.push(c);
+    }   
+    if (res == false || !st.empty()){
+        cout<<"NO"<<"\n";
     }
-
-    if (t.empty())
-        return true;
-    else
-        return false;
-}
-
-int main()
-{
-    int n;
-    cin>>n;
-    string s[n];
-    vector <string> str;
-    bool b;
-    for (int i = 0; i < n; i++){
-        cin>>s[i];
-        b = isBalanced(s[i]);
-        if (b){
-            str.push_back("YES");
-        }
-        else{
-            str.push_back("NO");
-        }
+    else {
+        cout<<"YES"<<"\n";
     }
-    for (int i=0; i<n; i++){
-        cout<<str[i]<<"\n";
-    }
-   
 
 
     return 0;
