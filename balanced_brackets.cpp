@@ -2,32 +2,39 @@
 #include <stack>
 using namespace std;
 
-int main(){
-    stack <int> st;
-    string str;
+bool BracketsBalanced(string str)
+{
+	stack<char> st;
+		for(int i=0;i<str.size();i++)
+		{
+			if(st.empty())
+			{
+				st.push(str[i]);
+			}
+			else if((st.top()=='('&& str[i]==')') || (st.top()=='{' && str[i]=='}') || (st.top()=='[' && str[i]==']'))
+			{
+				st.pop();
+			}
+			else
+			{
+				st.push(str[i]);
+			}
+		}
+		if(st.empty())
+		{
+			return true;
+		}
+		return false;
+}
+
+int main()
+{
+	string str;
     cin>>str;
-    bool res = true;
-    for (int i=0; i<str.size(); i++){
-        if (str[i] == '(' || str[i] == '[' || str[i] == '{'){
-            st.push(str[i]);
-        }
-        else if (str[i] == ')' || str[i] == ']' || str[i] == '}'){
-            if (!st.empty()){
-                st.pop();
-            }
-            else {
-                res = false;
-                break;
-            }
-        }
-    }   
-    if (res == false || !st.empty()){
-        cout<<"NO"<<"\n";
-    }
-    else {
-        cout<<"YES"<<"\n";
-    }
 
-
-    return 0;
+	if (BracketsBalanced(str))
+		cout << "yes";
+	else
+		cout << "no";
+	return 0;
 }
